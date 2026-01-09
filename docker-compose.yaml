@@ -1,0 +1,15 @@
+services:
+  sacco_home:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3010:3010"
+    environment:
+      - NODE_ENV=production
+      - PORT=3010
+    # Remove volumes for production - uncomment below for development with hot reload
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    #   - /app/.next
