@@ -72,7 +72,7 @@ export function SolutionSection() {
             
             <p className="text-gray-600 mb-8">
               Flits Sacco provides a comprehensive digital ecosystem that transforms 
-              how your SACCO operates. From administration to member services, we've 
+              how your SACCO operates. From administration to member services, we&apos;ve 
               got you covered.
             </p>
 

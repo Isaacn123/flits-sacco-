@@ -2,7 +2,6 @@
 
 import { motion } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -10,7 +9,7 @@ export function TestimonialsSection() {
       name: 'Mary Wanjiru',
       role: 'SACCO Manager',
       sacco: 'Unity SACCO',
-      content: 'Flits Sacco has completely transformed how we operate. Our members love the 24/7 access, and we\'ve reduced administrative work by 70%. Highly recommend!',
+      content: 'Flits Sacco has completely transformed how we operate. Our members love the 24/7 access, and we&apos;ve reduced administrative work by 70%. Highly recommend!',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1633158829556-6ea20ad39b4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXZpbmdzJTIwY29vcGVyYXRpdmUlMjBncm91cHxlbnwxfHx8fDE3Njc5ODQyOTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
@@ -18,7 +17,7 @@ export function TestimonialsSection() {
       name: 'John Kamau',
       role: 'Chairman',
       sacco: 'Progress SACCO',
-      content: 'Within just 2 weeks, we had our entire SACCO online. The system is intuitive, secure, and our members are thrilled. Best investment we\'ve made.',
+      content: 'Within just 2 weeks, we had our entire SACCO online. The system is intuitive, secure, and our members are thrilled. Best investment we&apos;ve made.',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1633158829556-6ea20ad39b4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXZpbmdzJTIwY29vcGVyYXRpdmUlMjBncm91cHxlbnwxfHx8fDE3Njc5ODQyOTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
     },
@@ -72,7 +71,7 @@ export function TestimonialsSection() {
 
                 {/* Content */}
                 <p className="text-gray-700 mb-6 italic leading-relaxed relative z-10">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </p>
 
                 {/* Author */}
