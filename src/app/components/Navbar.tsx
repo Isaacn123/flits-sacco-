@@ -23,13 +23,12 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <a href="#" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                {/* <span className="text-white font-bold text-xl">F</span> */}
-                 <Image 
+              <div className="relative w-12 h-10  overflow-hidden">
+                <Image 
                   src="/logo.png" 
                   alt="Flits Designs Saccos System"
                   fill
-                  className="object-contain p-0"
+                  className="object-contain p-1.5"
                   unoptimized
                 />
               </div>
