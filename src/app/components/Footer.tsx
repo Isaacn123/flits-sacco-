@@ -61,7 +61,7 @@ export function Footer() {
                 <div>
                   <div className="text-sm text-gray-400">Email</div>
                   <a href="mailto:info@flitssacco.com" className="hover:text-white transition-colors">
-                    info@flitssacco.com
+                    info@sacco.ug
                   </a>
                 </div>
               </li>
@@ -70,7 +70,7 @@ export function Footer() {
                 <div>
                   <div className="text-sm text-gray-400">Phone</div>
                   <a href="tel:+254700000000" className="hover:text-white transition-colors">
-                    +254 700 000 000
+                    +256 775 186 921,+256 751 607 607
                   </a>
                 </div>
               </li>
@@ -78,7 +78,7 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-sm text-gray-400">Location</div>
-                  <span>Nairobi, Kenya</span>
+                  <span>Kampala, Uganda</span>
                 </div>
               </li>
             </ul>
