@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
+import Image from 'next/image';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,14 @@ export function Navbar() {
           <div className="flex items-center">
             <a href="#" className="flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
+                {/* <span className="text-white font-bold text-xl">F</span> */}
+                 <Image 
+                  src="/logo.png" 
+                  alt="Flits Designs Saccos System"
+                  fill
+                  className="object-contain p-0"
+                  unoptimized
+                />
               </div>
               <span className="text-xl md:text-2xl font-bold text-gray-900">
                 Flits Sacco
