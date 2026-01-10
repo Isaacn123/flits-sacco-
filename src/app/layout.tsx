@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Empower your SACCO with a complete digital platform. Manage members, track savings, process loans, and provide members with 24/7 access to their accounts—all in one secure system.",
   keywords: ["SACCO", "cooperative", "savings", "loans", "member management", "digital platform", "financial technology"],
   authors: [{ name: "Flits Sacco" }],
-  creator: "Flits Sacco",
+  creator: "Nsamba Isaac",
   publisher: "Flits Sacco",
   metadataBase: new URL(baseUrl),
   openGraph: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: "Empower your SACCO with a complete digital platform. Manage members, track savings, process loans, and provide members with 24/7 access to their accounts—all in one secure system.",
     images: [
       {
-        url: `${baseUrl}/og-image.png`, // You should create this image (1200x630px recommended)
+        url: `/logo.png`, // You should create this image (1200x630px recommended)
         width: 1200,
         height: 630,
         alt: "Flits Sacco - Modern SACCO Management Platform",
@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Flits Sacco - Modern SACCO Management Made Simple",
     description: "Empower your SACCO with a complete digital platform. Manage members, track savings, process loans, and provide 24/7 member access.",
-    images: [`${baseUrl}/og-image.png`],
+    // images: [`${baseUrl}/og-image.png`],
+    images: [`/logo.png`],
     creator: "@flitssacco", // Replace with your actual Twitter handle
     site: "@flitssacco", // Replace with your actual Twitter handle
   },
