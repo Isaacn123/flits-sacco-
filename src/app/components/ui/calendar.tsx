@@ -60,9 +60,14 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <ChevronLeft className="size-4" {...props} />,
-        IconRight: ({ ...props }) => <ChevronRight className="size-4" {...props} />,
-      }}
+        Button: ({ children, ...props }: React.ComponentPropsWithoutRef<"button">) => (
+          <button {...props}>
+            {children}
+          </button>
+        ),
+        IconLeft: ({ ...props }: React.SVGProps<SVGSVGElement>) => <ChevronLeft className="size-4" {...props} />,
+        IconRight: ({ ...props }: React.SVGProps<SVGSVGElement>) => <ChevronRight className="size-4" {...props} />,
+      } as Partial<Record<string, React.ComponentType<unknown>>>}
       {...props}
     />
   );
