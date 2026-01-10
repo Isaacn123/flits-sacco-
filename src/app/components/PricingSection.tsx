@@ -24,8 +24,8 @@ export function PricingSection() {
     },
     {
       name: 'Professional',
-      price: '$99',
-      period: '/month',
+      price: '$0.099',
+      period: '/year',
       description: 'Most popular for growing SACCOs',
       features: [
         'Up to 500 members',
