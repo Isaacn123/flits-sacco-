@@ -18,17 +18,17 @@ export default function Home() {
       <ProblemSection />
       <SolutionSection />
       <div id="features">
-        <FeaturesSection />
+         <FeaturesSection /> 
       </div>
       <div id="how-it-works">
         <HowItWorks />
       </div>
       <BenefitsSection />
       <div id="pricing">
-        <PricingSection />
+      {/*  <PricingSection /> */} 
       </div>
       <div id="testimonials">
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
       </div>
       <CTASection />
       <Footer />

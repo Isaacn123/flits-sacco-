@@ -1,9 +1,11 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ArrowRight, Shield, Users, TrendingUp } from 'lucide-react';
+import { ArrowRight, Shield, Users } from 'lucide-react';
 import { Button } from './ui/button';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { Checkbox } from './ui/checkbox';
 
 export function Hero() {
   return (
@@ -89,38 +91,94 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Right content - Image */}
+          {/* Right content - Sign in */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
+            className="relative flex justify-center md:justify-end"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <ImageWithFallback
-                // src="https://images.unsplash.com/photo-1646579886741-12b59840c63f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjB0ZWNobm9sb2d5JTIwdGVhbXxlbnwxfHx8fDE3Njc5ODQyOTl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                 src="https://images.unsplash.com/photo-1634936564306-8a905be6429a?q=80&w=1242&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                 
-                alt="SACCO Management Team"
-                className="w-full h-auto"
-              />
-              {/* Floating card overlay */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-                className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl"
+            <div className="w-full max-w-sm rounded-2xl border-2 border-white bg-transparent p-8 text-white">
+              <div className="mb-6 text-center space-y-1">
+                <h2 className="text-2xl font-semibold text-white">Welcome back</h2>
+                <p className="text-lg font-medium text-white/90">Sign In Account</p>
+              </div>
+              <form
+                className="space-y-5"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="bg-green-500 rounded-full p-2">
-                    <TrendingUp className="w-5 h-5 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-600">Total Savings Growth</div>
-                    <div className="text-xl font-bold text-gray-900">+24.5% This Month</div>
-                  </div>
+                <div className="space-y-2">
+                  <Label htmlFor="hero-sacco-name" className="text-white">
+                    SACCO name
+                  </Label>
+                  <Input
+                    id="hero-sacco-name"
+                    name="saccoName"
+                    type="text"
+                    autoComplete="organization"
+                    placeholder="Enter your SACCO name"
+                    className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
+                  />
                 </div>
-              </motion.div>
+                <div className="space-y-2">
+                  <Label htmlFor="hero-username" className="text-white">
+                    Username or email
+                  </Label>
+                  <Input
+                    id="hero-username"
+                    name="username"
+                    type="text"
+                    autoComplete="username"
+                    placeholder="you@example.com"
+                    className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="hero-password" className="text-white">
+                    Password
+                  </Label>
+                  <Input
+                    id="hero-password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    placeholder="••••••••"
+                    className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
+                  />
+                </div>
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                  <div className="flex items-center gap-2">
+                    <Checkbox
+                      id="hero-remember"
+                      name="remember"
+                      className="border-white bg-transparent data-[state=checked]:bg-white data-[state=checked]:text-blue-800 data-[state=checked]:border-white dark:border-white dark:bg-transparent dark:data-[state=checked]:bg-white"
+                    />
+                    <Label
+                      htmlFor="hero-remember"
+                      className="text-sm font-normal text-white cursor-pointer"
+                    >
+                      Remember me
+                    </Label>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="text-sm text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
+                  >
+                    Forgot your password?
+                  </button>
+                </div>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="block w-full text-center text-base font-medium text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
+                  >
+                    Sign in
+                  </button>
+                </div>
+              </form>
             </div>
 
             {/* Decorative floating elements */}
