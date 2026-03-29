@@ -15,22 +15,22 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <ProblemSection />
-      <SolutionSection />
+      {/* <ProblemSection /> */}
+      {/* <SolutionSection /> */}
       <div id="features">
-         <FeaturesSection /> 
+         {/* <FeaturesSection />  */}
       </div>
       <div id="how-it-works">
-        <HowItWorks />
+        {/* <HowItWorks /> */}
       </div>
-      <BenefitsSection />
+      {/* <BenefitsSection /> */}
       <div id="pricing">
       {/*  <PricingSection /> */} 
       </div>
       <div id="testimonials">
         {/* <TestimonialsSection /> */}
       </div>
-      <CTASection />
+      {/* <CTASection /> */}
       <Footer />
     </div>
   );

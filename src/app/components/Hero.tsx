@@ -148,7 +148,7 @@ export function Hero() {
                     className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
                   />
                 </div>
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <div className=" items-start pt-1">
                   <div className="flex items-center gap-2">
                     <Checkbox
                       id="hero-remember"
@@ -162,22 +162,23 @@ export function Hero() {
                       Remember me
                     </Label>
                   </div>
-
                   <button
                     type="button"
                     className="text-sm text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
                   >
                     Forgot your password?
                   </button>
-                </div>
-                <div className="pt-2">
+                  <div className="pt-2">
                   <button
                     type="submit"
-                    className="block w-full text-center text-base font-medium text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
+                    className="block w-full text-left text-base font-medium text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
                   >
                     Sign in
                   </button>
                 </div>
+                 
+                </div>
+              
               </form>
             </div>
 
