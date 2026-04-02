@@ -33,7 +33,7 @@ export function Navbar() {
                 />
               </div>
               <span className="text-xl md:text-2xl font-bold text-gray-900">
-                Flits Sacco
+                Ug Saccos
               </span>
             </a>
           </div>
