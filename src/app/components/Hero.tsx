@@ -8,6 +8,10 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Checkbox } from './ui/checkbox';
 
+const API_BASE =
+  process.env.NEXT_PUBLIC_SACCO_API_URL?.replace(/\/$/, '') ||
+  'https://main.sacco.ug';
+
 function saccoSlug(value: string) {
   return value.toLowerCase().trim().replace(/\s+/g, '-');
 }
@@ -55,10 +59,11 @@ export function Hero() {
 
     setLoading(true);
     try {
-      // Same-origin `/api/sacco/login` proxies to main API (avoids browser CORS on main.sacco.ug).
-      const res = await fetch('/api/sacco/login', {
+      // Direct API (CORS must allow sacco.ug / your dev origin — or use Nginx proxy on sacco.ug).
+      const res = await fetch(`${API_BASE}/api/sacco/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        credentials: 'include',
         body: JSON.stringify(body),
       });
 
