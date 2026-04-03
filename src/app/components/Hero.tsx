@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Shield, Users } from 'lucide-react';
 import { Button } from './ui/button';
@@ -8,94 +7,7 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Checkbox } from './ui/checkbox';
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_SACCO_API_URL?.replace(/\/$/, '') ||
-  'https://main.sacco.ug';
-
-function saccoSlug(value: string) {
-  return value.toLowerCase().trim().replace(/\s+/g, '-');
-}
-
-function loginErrorMessage(data: unknown): string {
-  if (!data || typeof data !== 'object') return 'Sign in failed. Please try again.';
-  const o = data as Record<string, unknown>;
-  if (typeof o.message === 'string') return o.message;
-  if (o.errors && typeof o.errors === 'object') {
-    const first = Object.values(o.errors as Record<string, string[]>)[0];
-    if (Array.isArray(first) && first[0]) return String(first[0]);
-  }
-  return 'Sign in failed. Please try again.';
-}
-
 export function Hero() {
-  const [saccoName, setSaccoName] = useState('');
-  const [usernameOrEmail, setUsernameOrEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError(null);
-
-    const sacco = saccoSlug(saccoName);
-    const ident = usernameOrEmail.trim();
-    if (!sacco || !ident || !password) {
-      setError('Please enter SACCO name, username or email, and password.');
-      return;
-    }
-
-    const body: Record<string, string> = {
-      sacco,
-      password,
-      device_name: 'web',
-    };
-    if (ident.includes('@')) {
-      body.email = ident;
-    } else {
-      body.username = ident;
-    }
-
-    setLoading(true);
-    try {
-      // Direct API (CORS must allow sacco.ug / your dev origin — or use Nginx proxy on sacco.ug).
-      const res = await fetch(`${API_BASE}/api/sacco/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify(body),
-      });
-
-      const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
-
-      if (!res.ok) {
-        setError(loginErrorMessage(data));
-        return;
-      }
-
-      const token =
-        typeof data.token === 'string'
-          ? data.token
-          : typeof data.access_token === 'string'
-            ? data.access_token
-            : null;
-      if (token && typeof window !== 'undefined') {
-        try {
-          window.localStorage.setItem('auth_token', token);
-        } catch {
-          /* ignore quota / private mode */
-        }
-      }
-
-      const dashboardUrl = `https://${sacco}.sacco.ug/sacco/dashboard`;
-      window.location.assign(dashboardUrl);
-    } catch {
-      setError('Network error. Check your connection and try again.');
-    } finally {
-      setLoading(false);
-    }
-  }
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
       {/* Background decorative elements */}
@@ -191,15 +103,12 @@ export function Hero() {
                 <h2 className="text-2xl font-semibold text-white">Welcome back</h2>
                 <p className="text-lg font-medium text-white/90">Sign In Account</p>
               </div>
-              <form className="space-y-5" onSubmit={handleLogin}>
-                {error ? (
-                  <p
-                    className="text-sm text-red-200 bg-red-500/20 border border-red-300/40 rounded-md px-3 py-2"
-                    role="alert"
-                  >
-                    {error}
-                  </p>
-                ) : null}
+              <form
+                className="space-y-5"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
                 <div className="space-y-2">
                   <Label htmlFor="hero-sacco-name" className="text-white">
                     SACCO name
@@ -209,10 +118,7 @@ export function Hero() {
                     name="saccoName"
                     type="text"
                     autoComplete="organization"
-                    placeholder="e.g. hope"
-                    value={saccoName}
-                    onChange={(e) => setSaccoName(e.target.value)}
-                    disabled={loading}
+                    placeholder="Enter your SACCO name"
                     className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
                   />
                 </div>
@@ -226,9 +132,6 @@ export function Hero() {
                     type="text"
                     autoComplete="username"
                     placeholder="you@example.com"
-                    value={usernameOrEmail}
-                    onChange={(e) => setUsernameOrEmail(e.target.value)}
-                    disabled={loading}
                     className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
                   />
                 </div>
@@ -242,20 +145,14 @@ export function Hero() {
                     type="password"
                     autoComplete="current-password"
                     placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    disabled={loading}
                     className="bg-transparent border-white text-white placeholder:text-white/50 selection:bg-white/20 focus-visible:border-white focus-visible:ring-white/30 dark:bg-transparent dark:border-white"
                   />
                 </div>
-                <div className="flex flex-col gap-3 pt-1">
+                <div className=" items-start pt-1">
                   <div className="flex items-center gap-2">
                     <Checkbox
                       id="hero-remember"
                       name="remember"
-                      checked={remember}
-                      onCheckedChange={(v) => setRemember(v === true)}
-                      disabled={loading}
                       className="border-white bg-transparent data-[state=checked]:bg-white data-[state=checked]:text-blue-800 data-[state=checked]:border-white dark:border-white dark:bg-transparent dark:data-[state=checked]:bg-white"
                     />
                     <Label
@@ -267,17 +164,18 @@ export function Hero() {
                   </div>
                   <button
                     type="button"
-                    className="text-sm text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer text-left w-fit"
+                    className="text-sm text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
                   >
                     Forgot your password?
                   </button>
-                  <Button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-yellow-400 text-blue-900 hover:bg-yellow-300 font-semibold"
-                  >
-                    {loading ? 'Signing in…' : 'Sign in'}
-                  </Button>
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="block w-full text-left text-base font-medium text-white hover:text-white/80 underline-offset-4 hover:underline bg-transparent border-0 p-0 cursor-pointer"
+                    >
+                      Sign in
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
