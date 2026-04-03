@@ -51,5 +51,14 @@ export async function POST(req: NextRequest) {
     });
   }
 
-  return NextResponse.json(data as object, { status: upstreamRes.status });
+  const res = NextResponse.json(data as object, { status: upstreamRes.status });
+
+  // Forward Set-Cookie from Laravel so the browser can store session cookies (e.g. Domain=.sacco.ug).
+  const hdrs = upstreamRes.headers as Headers & { getSetCookie?: () => string[] };
+  const cookies = typeof hdrs.getSetCookie === 'function' ? hdrs.getSetCookie() : [];
+  for (const c of cookies) {
+    res.headers.append('Set-Cookie', c);
+  }
+
+  return res;
 }

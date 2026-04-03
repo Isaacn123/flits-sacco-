@@ -23,6 +23,56 @@ function loginErrorMessage(data: unknown): string {
   return 'Sign in failed. Please try again.';
 }
 
+/** Laravel / Sanctum may return token at top level or under `data`. */
+function extractAuthToken(data: Record<string, unknown>): string | null {
+  const candidates = [data.token, data.access_token, data.plainTextToken];
+  for (const c of candidates) {
+    if (typeof c === 'string' && c.length > 0) return c;
+  }
+  const inner = data.data;
+  if (inner && typeof inner === 'object') {
+    const d = inner as Record<string, unknown>;
+    for (const c of [d.token, d.access_token, d.plainTextToken]) {
+      if (typeof c === 'string' && c.length > 0) return c;
+    }
+  }
+  return null;
+}
+
+const DASHBOARD_PATH =
+  process.env.NEXT_PUBLIC_SACCO_DASHBOARD_PATH?.startsWith('/')
+    ? process.env.NEXT_PUBLIC_SACCO_DASHBOARD_PATH
+    : '/sacco/dashboard';
+
+function buildPostLoginUrl(
+  data: Record<string, unknown>,
+  subdomain: string,
+  token: string | null
+): string {
+  const direct = data.redirect ?? data.redirect_url ?? data.url;
+  if (typeof direct === 'string' && direct.startsWith('http')) {
+    return direct;
+  }
+
+  const base = `https://${subdomain}.sacco.ug${DASHBOARD_PATH}`;
+  if (!token) return base;
+
+  try {
+    const u = new URL(base);
+    u.searchParams.set('token', token);
+    const tt = data.token_type;
+    if (typeof tt === 'string' && tt.length > 0) {
+      u.searchParams.set('token_type', tt);
+    }
+    return u.toString();
+  } catch {
+    const q = new URLSearchParams({ token });
+    const tt = data.token_type;
+    if (typeof tt === 'string' && tt.length > 0) q.set('token_type', tt);
+    return `${base}?${q.toString()}`;
+  }
+}
+
 export function Hero() {
   const [saccoName, setSaccoName] = useState('');
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
@@ -57,6 +107,7 @@ export function Hero() {
     try {
       const res = await fetch('/api/sacco/login', {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(body),
       });
@@ -68,15 +119,16 @@ export function Hero() {
         return;
       }
 
-      const token =
-        typeof data.token === 'string'
-          ? data.token
-          : typeof data.access_token === 'string'
-            ? data.access_token
-            : null;
+      const token = extractAuthToken(data);
       if (token && typeof window !== 'undefined') {
         try {
           window.localStorage.setItem('auth_token', token);
+          const tt = data.token_type;
+          if (typeof tt === 'string' && tt.length > 0) {
+            window.localStorage.setItem('auth_token_type', tt);
+          } else {
+            window.localStorage.removeItem('auth_token_type');
+          }
         } catch {
           /* ignore */
         }
@@ -88,7 +140,7 @@ export function Hero() {
           ? saccoPayload.subdomain
           : sacco;
 
-      window.location.assign(`https://${sub}.sacco.ug/sacco/dashboard`);
+      window.location.assign(buildPostLoginUrl(data, sub, token));
     } catch {
       setError('Network error. Check your connection and try again.');
     } finally {
