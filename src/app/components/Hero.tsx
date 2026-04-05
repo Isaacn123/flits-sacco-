@@ -186,7 +186,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button 
+              {/* <Button 
                 size="lg" 
                 className="bg-yellow-400 text-blue-900 hover:bg-yellow-300 text-lg px-8 py-6"
               >
@@ -199,7 +199,7 @@ export function Hero() {
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-6"
               >
                 Watch Demo
-              </Button>
+              </Button> */}
             </div>
 
             {/* Stats */}

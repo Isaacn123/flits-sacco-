@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">Flits Sacco</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Ug Saccos</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Empowering SACCOs with modern digital solutions. Manage your 
               cooperative efficiently and serve your members better.
@@ -33,10 +33,10 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              {/* <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li> */}
+              {/* <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li> */}
+              {/* <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li> */}
+              {/* <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li> */}
             </ul>
           </div>
 
@@ -44,9 +44,9 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">User Guide</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li>
+              {/* <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li> */}
+              {/* <li><a href="#" className="hover:text-white transition-colors">User Guide</a></li> */}
+              {/* <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li> */}
               <li><a href="#" className="hover:text-white transition-colors">Support Center</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
             </ul>
@@ -89,7 +89,7 @@ export function Footer() {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Flits Sacco. All rights reserved.
+              © {new Date().getFullYear()} Ug Saccos. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-500 hover:text-white transition-colors">
