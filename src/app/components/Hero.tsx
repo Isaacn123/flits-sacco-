@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowRight, Shield, Users } from 'lucide-react';
 import { Button } from './ui/button';
@@ -186,14 +187,17 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* <Button 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="bg-yellow-400 text-blue-900 hover:bg-yellow-300 text-lg px-8 py-6"
               >
-                Register Your SACCO
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <Link href="/register">
+                  Register Your SACCO
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
-              <Button 
+              {/*   <Button 
                 size="lg" 
                 variant="outline" 
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-6"
