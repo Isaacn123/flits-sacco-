@@ -5,9 +5,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3010:3010"
+    # Puts MARKETING_API_KEY, SACCO_API_ORIGIN, etc. into the container process.
+    # Create `.env` next to this file on the server (same folder as docker-compose.yaml).
+    env_file:
+      - .env
     environment:
-      - NODE_ENV=production
-      - PORT=3010
+      NODE_ENV: production
+      PORT: "3010"
     # Remove volumes for production - uncomment below for development with hot reload
     # volumes:
     #   - .:/app
