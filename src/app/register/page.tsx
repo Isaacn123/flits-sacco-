@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { toast } from 'sonner';
 import { ArrowLeft } from 'lucide-react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
@@ -60,9 +61,15 @@ export default function RegisterPage() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError(errorMessage(data));
+        const msg = errorMessage(data);
+        setError(msg);
+        toast.error(msg);
         return;
       }
+      toast.success('Registration received', {
+        description: 'We will contact you using the phone or email you provided.',
+        duration: 6000,
+      });
       setSuccess(true);
     } catch {
       setError('Network error. Check your connection and try again.');

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 import "../styles/index.css";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sacco.ug';
@@ -74,6 +75,7 @@ export default function RootLayout({
         className={` antialiased`}
       >
         {children}
+        <Toaster richColors position="top-center" closeButton />
       </body>
     </html>
   );
