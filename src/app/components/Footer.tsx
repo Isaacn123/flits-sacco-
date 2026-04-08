@@ -89,7 +89,7 @@ export function Footer() {
         <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Ug Saccos. All rights reserved.
+              © {new Date().getFullYear()} Flits Sacco. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-500 hover:text-white transition-colors">

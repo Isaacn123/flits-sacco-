@@ -10,7 +10,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Features', href: '#features' },
+    { name: 'Home', href: '/' },
     // { name: 'How It Works', href: '#how-it-works' },
     // { name: 'Pricing', href: '#pricing' },
     // { name: 'Testimonials', href: '#testimonials' },
@@ -33,7 +33,7 @@ export function Navbar() {
                 />
               </div>
               <span className="text-xl md:text-2xl font-bold text-gray-900">
-                Ug Saccos
+                Flits Sacco
               </span>
             </a>
           </div>
