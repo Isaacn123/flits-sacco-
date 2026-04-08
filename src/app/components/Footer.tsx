@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4">Ug Saccos</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Flits Saccos</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Empowering SACCOs with modern digital solutions. Manage your 
               cooperative efficiently and serve your members better.
