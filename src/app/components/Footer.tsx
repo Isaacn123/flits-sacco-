@@ -52,8 +52,8 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contat */}
+          <div>c
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
