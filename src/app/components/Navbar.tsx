@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
@@ -56,9 +57,15 @@ export function Navbar() {
             <Button variant="ghost" className="text-gray-600">
               Sign In
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+            {/* <Button className="bg-blue-600 hover:bg-blue-700 text-white">
               Get Started
               <ArrowRight className="ml-2 w-4 h-4" />
+            </Button> */}
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Link href="/contact">
+                Contact us
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
             </Button>
           </div>
 
@@ -98,9 +105,15 @@ export function Navbar() {
                 <Button variant="outline" className="w-full">
                   Sign In
                 </Button>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                {/* <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                   Get Started
                   <ArrowRight className="ml-2 w-4 h-4" />
+                </Button> */}
+                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                    Contact us
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
                 </Button>
               </div>
             </div>

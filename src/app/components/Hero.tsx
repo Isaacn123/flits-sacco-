@@ -213,7 +213,8 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="text-3xl font-bold text-yellow-300">500+</div>
+                 {/* <div className="text-3xl font-bold text-yellow-300">500+</div> */}
+                <div className="text-3xl font-bold text-yellow-300">0+</div>
                 <div className="text-sm text-blue-100">Active SACCOs</div>
               </motion.div>
               <motion.div
@@ -221,7 +222,8 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <div className="text-3xl font-bold text-yellow-300">50K+</div>
+                {/* <div className="text-3xl font-bold text-yellow-300">50K+</div> */}
+                <div className="text-3xl font-bold text-yellow-300">0+</div>
                 <div className="text-sm text-blue-100">Members</div>
               </motion.div>
               <motion.div
@@ -229,7 +231,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <div className="text-3xl font-bold text-yellow-300">99.9%</div>
+                <div className="text-3xl font-bold text-yellow-300">0.0%</div>
                 <div className="text-sm text-blue-100">Uptime</div>
               </motion.div>
             </div>

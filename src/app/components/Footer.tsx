@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import Link from 'next/link';
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -52,10 +53,19 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contat */}
-          <div>c
+          {/* Contact */}
+          <div>
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-4">
+              <li>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-blue-400 hover:text-white transition-colors"
+                >
+                  <MessageCircle className="w-5 h-5 flex-shrink-0" />
+                  <span>Send us a message</span>
+                </Link>
+              </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                 <div>
