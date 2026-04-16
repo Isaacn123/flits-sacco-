@@ -173,6 +173,7 @@ export function Hero() {
             >
               <Shield className="w-4 h-4" />
               {/* <span className="text-sm">Trusted by SACCOs across the region</span> */}
+              <span className="text-sm">Now onboarding organizations/groups/clubs across the region</span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -225,7 +226,7 @@ export function Hero() {
                 transition={{ delay: 0.5 }}
               >
                   {/* <div className="text-3xl font-bold text-yellow-300">50K+</div> */}
-                  <span className="text-sm">Now onboarding organizations/groups/clubs across the region</span>
+                 
                 {/* <div className="text-3xl font-bold text-yellow-300">0+</div>
                 <div className="text-sm text-blue-100">Members</div> */}
 
