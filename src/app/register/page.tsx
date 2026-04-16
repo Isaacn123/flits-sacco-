@@ -92,7 +92,8 @@ export default function RegisterPage() {
 
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Register your organization</h1>
         <p className="text-gray-600 mb-8">
-          Submit your details. Our team will follow up to onboard your organisation.
+          Built for SACCOs, investment clubs, savings groups, and cooperatives. Submit your
+          details and our team will follow up to onboard your organization.
         </p>
 
         {success ? (

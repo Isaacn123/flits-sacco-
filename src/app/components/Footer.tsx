@@ -10,8 +10,9 @@ export function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">Flits Saccos</h3>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Empowering SACCOs with modern digital solutions. Manage your 
-              cooperative efficiently and serve your members better.
+              Empowering SACCOs, investment clubs, savings groups, and cooperatives with modern
+              digital solutions. Manage your organization efficiently and serve your members
+              better.
             </p>
             <div className="flex gap-4">
               <a href="#" className="bg-gray-800 p-2 rounded-lg hover:bg-blue-600 transition-colors">
