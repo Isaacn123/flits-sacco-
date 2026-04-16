@@ -172,7 +172,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
             >
               <Shield className="w-4 h-4" />
-              <span className="text-sm">Trusted by SACCOs across the region</span>
+              {/* <span className="text-sm">Trusted by SACCOs across the region</span> */}
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -181,9 +181,10 @@ export function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl mb-8 text-blue-100 leading-relaxed">
-              Empower your SACCO with a complete digital platform. Manage members, 
-              track savings, process loans, and provide members with 24/7 access to 
-              their accounts—all in one secure system.
+              Empower your organization with a complete digital platform. Manage
+              members, track savings, process loans, and give members 24/7 access to
+              their accounts—all in one secure system. Ideal for SACCOs, investment
+              clubs, savings groups, and cooperatives.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -193,7 +194,7 @@ export function Hero() {
                 className="bg-yellow-400 text-blue-900 hover:bg-yellow-300 text-lg px-8 py-6"
               >
                 <Link href="/register">
-                  Register Your SACCO
+                  Register your organization
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
@@ -213,26 +214,33 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                 {/* <div className="text-3xl font-bold text-yellow-300">500+</div> */}
-                <div className="text-3xl font-bold text-yellow-300">0+</div>
-                <div className="text-sm text-blue-100">Active SACCOs</div>
+                 {/* <div className="text-3xl font-bold text-yellow-300">0+</div>
+                 <div className="text-sm text-blue-100">Active SACCOs</div> */}
+                <div className="text-3xl font-bold text-yellow-300">Cloud</div>
+                <div className="text-sm text-blue-100">Nothing to install</div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                {/* <div className="text-3xl font-bold text-yellow-300">50K+</div> */}
-                <div className="text-3xl font-bold text-yellow-300">0+</div>
-                <div className="text-sm text-blue-100">Members</div>
+                  {/* <div className="text-3xl font-bold text-yellow-300">50K+</div> */}
+                  <span className="text-sm">Now onboarding organizations/groups/clubs across the region</span>
+                {/* <div className="text-3xl font-bold text-yellow-300">0+</div>
+                <div className="text-sm text-blue-100">Members</div> */}
+
+                <div className="text-3xl font-bold text-yellow-300">Portal</div>
+                <div className="text-sm text-blue-100">Member self-service</div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <div className="text-3xl font-bold text-yellow-300">0.0%</div>
-                <div className="text-sm text-blue-100">Uptime</div>
+                   {/* <div className="text-3xl font-bold text-yellow-300">0.0%</div>
+                   <div className="text-sm text-blue-100">Uptime</div> */}
+                <div className="text-3xl font-bold text-yellow-300">SSL</div>
+                <div className="text-sm text-blue-100">Secure connections</div>
               </motion.div>
             </div>
           </motion.div>

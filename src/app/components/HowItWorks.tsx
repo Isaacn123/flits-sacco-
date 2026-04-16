@@ -8,7 +8,7 @@ export function HowItWorks() {
     {
       icon: UserPlus,
       step: '01',
-      title: 'Register Your SACCO',
+      title: 'Register your organization',
       description: 'Sign up in minutes with your SACCO details. No technical knowledge required.',
       color: 'bg-blue-600',
     },

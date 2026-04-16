@@ -90,7 +90,7 @@ export default function RegisterPage() {
           Back to home
         </Link>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Register your SACCO</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Register your organization</h1>
         <p className="text-gray-600 mb-8">
           Submit your details. Our team will follow up to onboard your organisation.
         </p>
