@@ -54,9 +54,9 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" className="text-gray-600">
+            {/* <Button variant="ghost" className="text-gray-600">
               Sign In
-            </Button>
+            </Button> */}
             {/* <Button className="bg-blue-600 hover:bg-blue-700 text-white">
               Get Started
               <ArrowRight className="ml-2 w-4 h-4" />

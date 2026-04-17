@@ -48,9 +48,18 @@ export function Footer() {
             <ul className="space-y-3">
               {/* <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li> */}
               {/* <li><a href="#" className="hover:text-white transition-colors">User Guide</a></li> */}
-              {/* <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li> */}
+              {/* <li><a href="#" className="hover:text-white transition-colors">API Reference</a></li> 
+              
               <li><a href="#" className="hover:text-white transition-colors">Support Center</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+              */}
+             
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact & support
+                </Link>
+              </li>
+              <li className="text-gray-500">Blog — coming soon</li>
             </ul>
           </div>
 
@@ -102,7 +111,7 @@ export function Footer() {
             <p className="text-gray-500 text-sm">
               © {new Date().getFullYear()} Flits Sacco. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm">
+            {/* <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-500 hover:text-white transition-colors">
                 Privacy Policy
               </a>
@@ -112,7 +121,10 @@ export function Footer() {
               <a href="#" className="text-gray-500 hover:text-white transition-colors">
                 Cookie Policy
               </a>
-            </div>
+            </div> */}
+            <p className="text-gray-500 text-sm text-center md:text-right">
+              Privacy, terms, and cookie notices will be added here when published.
+            </p>
           </div>
         </div>
       </div>
