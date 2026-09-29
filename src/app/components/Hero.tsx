@@ -177,14 +177,14 @@ export function Hero() {
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Modern SACCO Management{' '}
+              Modern Group Financial Management{' '}
               <span className="text-yellow-300">Made Simple</span>
             </h1>
 
             <p className="text-lg md:text-xl mb-8 text-blue-100 leading-relaxed">
               Empower your organization with a complete digital platform. Manage
               members, track savings, process loans, and give members 24/7 access to
-              their accounts—all in one secure system. Ideal for SACCOs, investment
+              their accounts. all in one secure system. Ideal for SACCOs, investment
               clubs, savings groups, and cooperatives.
             </p>
 
@@ -195,17 +195,21 @@ export function Hero() {
                 className="bg-yellow-400 text-blue-900 hover:bg-yellow-300 text-lg px-8 py-6"
               >
                 <Link href="/register">
-                  Register your organization
+                  Register your Sacco
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              {/*   <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 text-lg px-8 py-6"
               >
-                Watch Demo
-              </Button> */}
+                <Link href="/register/group">
+                  Register your group/club
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
             </div>
 
             {/* Stats */}

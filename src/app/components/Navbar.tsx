@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
@@ -9,9 +10,15 @@ import Image from 'next/image';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const onDemoPage = pathname === '/demo';
+  const demoNav = onDemoPage
+    ? { name: 'Home', href: '/' }
+    : { name: 'Request a Demo', href: '/demo' };
 
   const navLinks = [
-    { name: 'Home', href: '/' },
+    // { name: 'Home', href: '/' },
+    // { name: 'Request a Demo', href: '/demo' },
     // { name: 'How It Works', href: '#how-it-works' },
     // { name: 'Pricing', href: '#pricing' },
     // { name: 'Testimonials', href: '#testimonials' },
@@ -23,20 +30,20 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <div className="relative w-12 h-10  overflow-hidden">
                 <Image 
                   src="/logo.png" 
-                  alt="Flits Designs Saccos System"
+                  alt="Flits Systems Group Financial Management System"
                   fill
                   className="object-contain p-1.5"
                   unoptimized
                 />
               </div>
               <span className="text-xl md:text-2xl font-bold text-gray-900">
-                Flits Sacco
+                Flits 
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -54,13 +61,9 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            {/* <Button variant="ghost" className="text-gray-600">
-              Sign In
-            </Button> */}
-            {/* <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-              Get Started
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button> */}
+            <Button asChild variant="outline" className="border-blue-600 text-blue-700 hover:bg-blue-50">
+              <Link href={demoNav.href}>{demoNav.name}</Link>
+            </Button>
             <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white">
               <Link href="/contact">
                 Contact us
@@ -105,10 +108,11 @@ export function Navbar() {
                 <Button variant="outline" className="w-full">
                   Sign In
                 </Button>
-                {/* <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                  Get Started
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button> */}
+                <Button asChild variant="outline" className="w-full border-blue-600 text-blue-700 hover:bg-blue-50">
+                  <Link href={demoNav.href} onClick={() => setIsOpen(false)}>
+                    {demoNav.name}
+                  </Link>
+                </Button>
                 <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Contact us
