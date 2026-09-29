@@ -16,7 +16,7 @@ export function Navbar() {
     ? { name: 'Home', href: '/' }
     : { name: 'Request a Demo', href: '/demo' };
 
-  const navLinks = [
+  const navLinks: { name: string; href: string }[] = [
     // { name: 'Home', href: '/' },
     // { name: 'Request a Demo', href: '/demo' },
     // { name: 'How It Works', href: '#how-it-works' },
