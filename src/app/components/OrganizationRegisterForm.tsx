@@ -96,7 +96,7 @@ export function OrganizationRegisterForm({ variant }: { variant: 'sacco' | 'grou
     };
     const reg = String(fd.get('registration_number') ?? '').trim();
     if (reg) payload.registration_number = reg;
-    if (variant === 'group') payload.organization_type = groupType;
+    if (variant === 'group') payload.group_type = groupType;
 
     if (
       !organizationName ||
