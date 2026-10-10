@@ -81,8 +81,11 @@ export function OrganizationRegisterForm({ variant }: { variant: 'sacco' | 'grou
       city = cityOther.trim();
     }
 
+    const organizationName = String(fd.get('sacco_name') ?? '').trim();
     const payload: Record<string, string | number | undefined> = {
-      sacco_name: String(fd.get('sacco_name') ?? '').trim(),
+      ...(variant === 'sacco'
+        ? { sacco_name: organizationName }
+        : { group_name: organizationName }),
       contact_person: String(fd.get('contact_person') ?? '').trim(),
       phone: String(fd.get('phone') ?? '').trim(),
       email: String(fd.get('email') ?? '').trim(),
@@ -96,7 +99,7 @@ export function OrganizationRegisterForm({ variant }: { variant: 'sacco' | 'grou
     if (variant === 'group') payload.organization_type = groupType;
 
     if (
-      !payload.sacco_name ||
+      !organizationName ||
       !payload.contact_person ||
       !payload.phone ||
       !payload.email ||
@@ -106,9 +109,12 @@ export function OrganizationRegisterForm({ variant }: { variant: 'sacco' | 'grou
       return;
     }
 
+    const endpoint =
+      variant === 'sacco' ? '/api/marketing/sacco-register' : '/api/marketing/group-register';
+
     setLoading(true);
     try {
-      const res = await fetch('/api/marketing/sacco-register', {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
